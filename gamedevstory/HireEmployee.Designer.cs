@@ -88,10 +88,10 @@
             listViewGroup4,
             listViewGroup5,
             listViewGroup6});
-			this.employeeListView.Location = new System.Drawing.Point(0, 183);
+			this.employeeListView.Location = new System.Drawing.Point(12, 183);
 			this.employeeListView.MultiSelect = false;
 			this.employeeListView.Name = "employeeListView";
-			this.employeeListView.Size = new System.Drawing.Size(348, 164);
+			this.employeeListView.Size = new System.Drawing.Size(502, 152);
 			this.employeeListView.SmallImageList = this.imageList;
 			this.employeeListView.TabIndex = 2;
 			this.employeeListView.UseCompatibleStateImageBehavior = false;
@@ -184,8 +184,8 @@
 			// oLevelColumn
 			// 
 			this.oLevelColumn.AspectName = "Level";
-			this.oLevelColumn.Text = "Taitotaso";
-			this.oLevelColumn.Width = 90;
+			this.oLevelColumn.Text = "";
+			this.oLevelColumn.Width = 67;
 			// 
 			// oWageColumn
 			// 
