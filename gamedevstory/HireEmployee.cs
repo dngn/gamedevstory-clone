@@ -12,7 +12,7 @@ namespace gamedevstory
 	public partial class HireEmployee : Form
 	{
 		private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
-		private bool _generateNewEmployees; // TODO: not used
+		private bool _generateNewEmployees; // TODO: not used s
 		public HireEmployee(bool generateNewEmployees = false)
 		{
 			InitializeComponent();
