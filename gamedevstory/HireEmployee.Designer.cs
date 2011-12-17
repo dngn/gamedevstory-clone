@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Ohjelmoija", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Graafikko", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Säveltäjä", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Kirjoittaja", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Suunnittelija", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Epäpätevä", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ohjelmoija", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Graafikko", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Säveltäjä", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Kirjoittaja", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Suunnittelija", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Epäpätevä", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HireEmployee));
 			this.employeeListView = new System.Windows.Forms.ListView();
 			this.nameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,26 +69,26 @@
             this.designingColumn,
             this.soundEngineeringColumn,
             this.artColumn});
-			listViewGroup7.Header = "Ohjelmoija";
-			listViewGroup7.Name = "programmer";
-			listViewGroup8.Header = "Graafikko";
-			listViewGroup8.Name = "artist";
-			listViewGroup9.Header = "Säveltäjä";
-			listViewGroup9.Name = "soundEngineer";
-			listViewGroup10.Header = "Kirjoittaja";
-			listViewGroup10.Name = "writer";
-			listViewGroup11.Header = "Suunnittelija";
-			listViewGroup11.Name = "designer";
-			listViewGroup12.Header = "Epäpätevä";
-			listViewGroup12.Name = "nothing";
+			listViewGroup1.Header = "Ohjelmoija";
+			listViewGroup1.Name = "programmer";
+			listViewGroup2.Header = "Graafikko";
+			listViewGroup2.Name = "artist";
+			listViewGroup3.Header = "Säveltäjä";
+			listViewGroup3.Name = "soundEngineer";
+			listViewGroup4.Header = "Kirjoittaja";
+			listViewGroup4.Name = "writer";
+			listViewGroup5.Header = "Suunnittelija";
+			listViewGroup5.Name = "designer";
+			listViewGroup6.Header = "Epäpätevä";
+			listViewGroup6.Name = "nothing";
 			this.employeeListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
-			this.employeeListView.Location = new System.Drawing.Point(12, 183);
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
+			this.employeeListView.Location = new System.Drawing.Point(12, 265);
 			this.employeeListView.MultiSelect = false;
 			this.employeeListView.Name = "employeeListView";
 			this.employeeListView.Size = new System.Drawing.Size(502, 152);
@@ -143,6 +143,7 @@
 			this.imageList.Images.SetKeyName(4, "writerIcon");
 			this.imageList.Images.SetKeyName(5, "soundEngIcon");
 			this.imageList.Images.SetKeyName(6, "designerIcon");
+			this.imageList.Images.SetKeyName(7, "add.png");
 			// 
 			// employeeObjectListView
 			// 
@@ -163,9 +164,10 @@
             this.oDesigningColumn,
             this.oSoundEngineeringColumn,
             this.oArtColumn});
+			this.employeeObjectListView.HeaderUsesThemes = false;
 			this.employeeObjectListView.Location = new System.Drawing.Point(12, 12);
 			this.employeeObjectListView.Name = "employeeObjectListView";
-			this.employeeObjectListView.Size = new System.Drawing.Size(502, 165);
+			this.employeeObjectListView.Size = new System.Drawing.Size(675, 237);
 			this.employeeObjectListView.SmallImageList = this.imageList;
 			this.employeeObjectListView.TabIndex = 3;
 			this.employeeObjectListView.UseCompatibleStateImageBehavior = false;
@@ -175,45 +177,61 @@
 			// 
 			this.oNameColumn.AspectName = "FullName";
 			this.oNameColumn.Text = "Nimi";
+			this.oNameColumn.Width = 67;
 			// 
 			// oLevelColumn
 			// 
 			this.oLevelColumn.AspectName = "Level";
+			this.oLevelColumn.HeaderImageKey = "starIcon";
+			this.oLevelColumn.ShowTextInHeader = false;
 			this.oLevelColumn.Text = "";
 			this.oLevelColumn.Width = 68;
 			// 
 			// oWageColumn
 			// 
 			this.oWageColumn.AspectName = "Wage";
-			this.oWageColumn.Width = 41;
+			this.oWageColumn.AspectToStringFormat = "{0:C}";
+			this.oWageColumn.HeaderImageKey = "dollarIcon";
+			this.oWageColumn.ShowTextInHeader = false;
+			this.oWageColumn.Width = 74;
 			// 
 			// oProgrammingColumn
 			// 
 			this.oProgrammingColumn.AspectName = "ProgrammingSkill";
+			this.oProgrammingColumn.HeaderImageKey = "programmerIcon";
+			this.oProgrammingColumn.ShowTextInHeader = false;
 			// 
 			// oWritingColumn
 			// 
 			this.oWritingColumn.AspectName = "WritingSkill";
+			this.oWritingColumn.HeaderImageKey = "writerIcon";
+			this.oWritingColumn.ShowTextInHeader = false;
 			this.oWritingColumn.Width = 56;
 			// 
 			// oDesigningColumn
 			// 
 			this.oDesigningColumn.AspectName = "DesigningSkill";
+			this.oDesigningColumn.HeaderImageKey = "designerIcon";
+			this.oDesigningColumn.ShowTextInHeader = false;
 			// 
 			// oSoundEngineeringColumn
 			// 
 			this.oSoundEngineeringColumn.AspectName = "SoundEngineeringSkill";
+			this.oSoundEngineeringColumn.HeaderImageKey = "soundEngIcon";
+			this.oSoundEngineeringColumn.ShowTextInHeader = false;
 			// 
 			// oArtColumn
 			// 
 			this.oArtColumn.AspectName = "ArtSkill";
+			this.oArtColumn.HeaderImageKey = "artistIcon";
+			this.oArtColumn.ShowTextInHeader = false;
 			this.oArtColumn.Text = "";
 			// 
 			// HireEmployee
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(526, 347);
+			this.ClientSize = new System.Drawing.Size(699, 429);
 			this.Controls.Add(this.employeeObjectListView);
 			this.Controls.Add(this.employeeListView);
 			this.Name = "HireEmployee";
