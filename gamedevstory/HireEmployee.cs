@@ -26,60 +26,17 @@ namespace gamedevstory
 			for (var i = 0; i < 10; i++)
 			{
 				var employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
-
 				_employees.Add(employee);
-				var item = new ListViewItem
-				{
-					Text = employee.FirstName + ' ' + employee.LastName,
-					Tag = employee.UniqueId
-				};
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Level.ToString()));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Wage + " €"));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Programming].ToString()));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Writing].ToString()));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Designing].ToString()));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.SoundEngineering].ToString()));
-				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Art].ToString()));
-				switch (employee.Speciality)
-				{
-					case Skill.Art:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["artist"];
-						item.Group = employeeListView.Groups["artist"];
-						break;
-					case Skill.Writing:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["writer"];
-						item.Group = employeeListView.Groups["writer"];
-						break;
-					case Skill.Programming:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["programmer"];
-						item.Group = employeeListView.Groups["programmer"];
-						break;
-					case Skill.Designing:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["designer"];
-						item.Group = employeeListView.Groups["designer"];
-						break;
-					case Skill.SoundEngineering:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["soundEngineer"];
-						item.Group = employeeListView.Groups["soundEngineer"];
-						break;
-					case Skill.Nothing:
-						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["nothing"];
-						item.Group = employeeListView.Groups["nothing"];
-						break;
-					default:
-						//MessageBox.Show(employee.Speciality.ToString());
-						break;
-				}
-				employeeListView.Items.Add(item);
-				employeeObjectListView.SetObjects(_employees);
 			}
+			employeeObjectListView.SetObjects(_employees);
 		}
 
-		private void employeeListView_DoubleClick(object sender, EventArgs e)
+		private void employeeObjectListView_DoubleClick(object sender, EventArgs e)
 		{
-			if (employeeListView.SelectedItems.Count > 0)
+			if (employeeObjectListView.SelectedObject != null)
 			{
-				MessageBox.Show("Aiot palkata seuraavan työntekijän: \n" + _employees[(int)employeeListView.SelectedItems[0].Tag]);
+				var emp = (Employee) employeeObjectListView.SelectedObject;
+				Console.WriteLine(emp.ToString());
 			}
 		}
 	}
