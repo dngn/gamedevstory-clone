@@ -21,5 +21,24 @@ namespace gamedevstory
 			var hire = new HireEmployee();
 			hire.Show();
 		}
+
+		private void ManageEmployees_Load(object sender, EventArgs e)
+		{
+			employeeObjectListView.SetObjects(Company.Employees);
+		}
+
+		private void updateTimer_Tick(object sender, EventArgs e)
+		{
+			Console.WriteLine("lol");
+			employeeObjectListView.SetObjects(Company.Employees);
+			var costs = Company.Employees.Sum(employee => employee.Wage);
+			monthlyCostsLabel.Text = "Kuukausittaiset menot: " + String.Format("{0:C}", costs);
+		}
+
+		private void hireEmployeeButton_Click(object sender, EventArgs e)
+		{
+			var hireEmployee = new HireEmployee();
+			hireEmployee.Show();
+		}
 	}
 }

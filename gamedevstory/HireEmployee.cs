@@ -22,12 +22,21 @@ namespace gamedevstory
 
 		private void HireEmployee_Load(object sender, EventArgs e)
 		{
+			/*var generatedNames = new List<string>();
 			var rand = new Random();
 			for (var i = 0; i < 10; i++)
 			{
-				var employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
+				Employee employee;
+				do
+				{
+					employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
+				} while (generatedNames.Contains(employee.FullName));
+				if (employee.FullName == "Markus Persson")
+					employee.ProgrammingSkill = 0;
 				_employees.Add(employee);
-			}
+				generatedNames.Add(employee.FullName);
+			}*/
+			GenerateNewEmployees(20);
 			employeeObjectListView.SetObjects(_employees);
 		}
 
@@ -37,6 +46,39 @@ namespace gamedevstory
 			{
 				var emp = (Employee) employeeObjectListView.SelectedObject;
 				Console.WriteLine(emp.ToString());
+				Company.Employees.Add(emp);
+				_employees.Remove(emp);
+			}
+		}
+
+		public void GenerateNewEmployees(int count)
+		{
+			var generatedNames = new List<string>();
+			var rand = new Random();
+
+			for (var i = 0; i < count - (int)(count * 0.25f); i++)
+			{
+				Employee employee;
+
+				do
+				{
+					employee = Employee.GenerateNew(Company.MinimunNormalEmployeeLevel, Company.MaximumNormalEmployeeLevel, Skill.Nothing, false, rand);
+				} while (generatedNames.Contains(employee.FullName));
+
+				generatedNames.Add(employee.FullName);
+				_employees.Add(employee);
+			}
+			for (var i = 0; i < (int)(count * 0.25f); i++)
+			{
+				Employee employee;
+
+				do
+				{
+					employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
+				} while (generatedNames.Contains(employee.FullName));
+
+				generatedNames.Add(employee.FullName);
+				_employees.Add(employee);
 			}
 		}
 	}

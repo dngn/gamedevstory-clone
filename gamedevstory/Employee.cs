@@ -83,7 +83,7 @@ namespace gamedevstory
 			var rand = random ?? new Random();
 			var firstName = Utils.GetRandomString(EmployeeInfo.FirstNames, rand);
 			var lastName = Utils.GetRandomString(EmployeeInfo.LastNames, rand);
-			var level = (byte) rand.Next(minLevel, maxLevel);
+			var level = (byte) rand.Next(minLevel, maxLevel + 1);
 			var wage = rand.Next((int)(MinimumWage * level * 0.75f), (int)(MinimumWage * level * 1.5f));
 			var skills = new Dictionary<Skill, byte>();
 			var spec = speciality;
@@ -107,6 +107,17 @@ namespace gamedevstory
 				skills.Add(skill, skillLevel);
 			}
 			return new Employee(firstName, lastName, level, wage, skills, spec);
+		}
+
+		public static object EmployeeSpecialityImageGetter(object rowObject)
+		{
+			var emp = (Employee) rowObject;
+			switch (emp.Speciality)
+			{
+				case Skill.Art:
+
+					break;
+			}
 		}
 	}
 

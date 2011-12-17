@@ -13,6 +13,7 @@ namespace gamedevstory
 		[STAThread]
 		static void Main()
 		{
+			Company.InitializeCompany();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainWindow());

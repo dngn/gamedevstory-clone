@@ -66,6 +66,7 @@
 			this.employeeObjectListView.AllColumns.Add(this.oDesigningColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oSoundEngineeringColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oArtColumn);
+			this.employeeObjectListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.employeeObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.oNameColumn,
             this.oLevelColumn,
@@ -75,6 +76,7 @@
             this.oDesigningColumn,
             this.oSoundEngineeringColumn,
             this.oArtColumn});
+			this.employeeObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
 			this.employeeObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.employeeObjectListView.HeaderUsesThemes = false;
 			this.employeeObjectListView.Location = new System.Drawing.Point(0, 0);
@@ -83,7 +85,10 @@
 			this.employeeObjectListView.Size = new System.Drawing.Size(699, 429);
 			this.employeeObjectListView.SmallImageList = this.imageList;
 			this.employeeObjectListView.TabIndex = 3;
+			this.employeeObjectListView.UseAlternatingBackColors = true;
 			this.employeeObjectListView.UseCompatibleStateImageBehavior = false;
+			this.employeeObjectListView.UseHotItem = true;
+			this.employeeObjectListView.UseTranslucentHotItem = true;
 			this.employeeObjectListView.View = System.Windows.Forms.View.Details;
 			this.employeeObjectListView.DoubleClick += new System.EventHandler(this.employeeObjectListView_DoubleClick);
 			// 
@@ -99,7 +104,6 @@
 			this.oLevelColumn.HeaderImageKey = "starIcon";
 			this.oLevelColumn.ShowTextInHeader = false;
 			this.oLevelColumn.Text = "";
-			this.oLevelColumn.Width = 60;
 			// 
 			// oWageColumn
 			// 
@@ -114,35 +118,35 @@
 			this.oProgrammingColumn.AspectName = "ProgrammingSkill";
 			this.oProgrammingColumn.HeaderImageKey = "programmerIcon";
 			this.oProgrammingColumn.ShowTextInHeader = false;
-			this.oProgrammingColumn.Width = 40;
+			this.oProgrammingColumn.Width = 55;
 			// 
 			// oWritingColumn
 			// 
 			this.oWritingColumn.AspectName = "WritingSkill";
 			this.oWritingColumn.HeaderImageKey = "writerIcon";
 			this.oWritingColumn.ShowTextInHeader = false;
-			this.oWritingColumn.Width = 40;
+			this.oWritingColumn.Width = 55;
 			// 
 			// oDesigningColumn
 			// 
 			this.oDesigningColumn.AspectName = "DesigningSkill";
 			this.oDesigningColumn.HeaderImageKey = "designerIcon";
 			this.oDesigningColumn.ShowTextInHeader = false;
-			this.oDesigningColumn.Width = 40;
+			this.oDesigningColumn.Width = 55;
 			// 
 			// oSoundEngineeringColumn
 			// 
 			this.oSoundEngineeringColumn.AspectName = "SoundEngineeringSkill";
 			this.oSoundEngineeringColumn.HeaderImageKey = "soundEngIcon";
 			this.oSoundEngineeringColumn.ShowTextInHeader = false;
-			this.oSoundEngineeringColumn.Width = 40;
+			this.oSoundEngineeringColumn.Width = 55;
 			// 
 			// oArtColumn
 			// 
 			this.oArtColumn.AspectName = "ArtSkill";
 			this.oArtColumn.HeaderImageKey = "artistIcon";
 			this.oArtColumn.ShowTextInHeader = false;
-			this.oArtColumn.Width = 40;
+			this.oArtColumn.Width = 55;
 			// 
 			// HireEmployee
 			// 
