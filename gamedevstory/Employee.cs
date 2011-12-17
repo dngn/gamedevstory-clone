@@ -115,8 +115,19 @@ namespace gamedevstory
 			switch (emp.Speciality)
 			{
 				case Skill.Art:
-
-					break;
+					return "artistIcon";
+				case Skill.Programming:
+					return "programmerIcon";
+				case Skill.SoundEngineering:
+					return "soundEngIcon";
+				case Skill.Designing:
+					return "designerIcon";
+				case Skill.Writing:
+					return "writerIcon";
+				case Skill.Nothing:
+					return "skilllessIcon";
+				default:
+					return null;
 			}
 		}
 	}

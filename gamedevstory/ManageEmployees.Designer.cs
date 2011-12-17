@@ -1,4 +1,6 @@
-﻿namespace gamedevstory
+﻿using BrightIdeasSoftware;
+
+namespace gamedevstory
 {
 	partial class ManageEmployees
 	{
@@ -52,6 +54,7 @@
 			// 
 			// employeeObjectListView
 			// 
+			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.AllColumns.Add(this.oNameColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oLevelColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oWageColumn);
@@ -90,6 +93,7 @@
 			this.oNameColumn.Text = "Nimi";
 			this.oNameColumn.UseInitialLetterForGroup = true;
 			this.oNameColumn.Width = 120;
+			this.oNameColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
 			// 
 			// oLevelColumn
 			// 
@@ -152,7 +156,7 @@
 			this.imageList.Images.SetKeyName(4, "writerIcon");
 			this.imageList.Images.SetKeyName(5, "soundEngIcon");
 			this.imageList.Images.SetKeyName(6, "designerIcon");
-			this.imageList.Images.SetKeyName(7, "add.png");
+			this.imageList.Images.SetKeyName(7, "skilllessIcon");
 			// 
 			// updateTimer
 			// 
@@ -188,11 +192,10 @@
 			// 
 			// hireEmployeeButton
 			// 
-			this.hireEmployeeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.hireEmployeeButton.Image = ((System.Drawing.Image)(resources.GetObject("hireEmployeeButton.Image")));
 			this.hireEmployeeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.hireEmployeeButton.Name = "hireEmployeeButton";
-			this.hireEmployeeButton.Size = new System.Drawing.Size(23, 22);
+			this.hireEmployeeButton.Size = new System.Drawing.Size(122, 22);
 			this.hireEmployeeButton.Text = "Palkkaa työntekijä";
 			this.hireEmployeeButton.Click += new System.EventHandler(this.hireEmployeeButton_Click);
 			// 

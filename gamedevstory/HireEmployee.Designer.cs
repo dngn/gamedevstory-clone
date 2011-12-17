@@ -1,4 +1,6 @@
-﻿namespace gamedevstory
+﻿using BrightIdeasSoftware;
+
+namespace gamedevstory
 {
 	partial class HireEmployee
 	{
@@ -30,7 +32,6 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HireEmployee));
-			this.imageList = new System.Windows.Forms.ImageList(this.components);
 			this.employeeObjectListView = new BrightIdeasSoftware.ObjectListView();
 			this.oNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oLevelColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -40,24 +41,14 @@
 			this.oDesigningColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oSoundEngineeringColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oArtColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+			this.oSpecialityColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+			this.imageList = new System.Windows.Forms.ImageList(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// imageList
-			// 
-			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList.Images.SetKeyName(0, "starIcon");
-			this.imageList.Images.SetKeyName(1, "dollarIcon");
-			this.imageList.Images.SetKeyName(2, "artistIcon");
-			this.imageList.Images.SetKeyName(3, "programmerIcon");
-			this.imageList.Images.SetKeyName(4, "writerIcon");
-			this.imageList.Images.SetKeyName(5, "soundEngIcon");
-			this.imageList.Images.SetKeyName(6, "designerIcon");
-			this.imageList.Images.SetKeyName(7, "add.png");
-			// 
 			// employeeObjectListView
-			// 
+			//	 
+			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.AllColumns.Add(this.oNameColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oLevelColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oWageColumn);
@@ -66,16 +57,18 @@
 			this.employeeObjectListView.AllColumns.Add(this.oDesigningColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oSoundEngineeringColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oArtColumn);
+			this.employeeObjectListView.AllColumns.Add(this.oSpecialityColumn);
 			this.employeeObjectListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.employeeObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.oNameColumn,
-            this.oLevelColumn,
-            this.oWageColumn,
-            this.oProgrammingColumn,
-            this.oWritingColumn,
-            this.oDesigningColumn,
-            this.oSoundEngineeringColumn,
-            this.oArtColumn});
+			this.oNameColumn,
+			this.oLevelColumn,
+			this.oWageColumn,
+			this.oProgrammingColumn,
+			this.oWritingColumn,
+			this.oDesigningColumn,
+			this.oSoundEngineeringColumn,
+			this.oArtColumn,
+			this.oSpecialityColumn});
 			this.employeeObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
 			this.employeeObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.employeeObjectListView.HeaderUsesThemes = false;
@@ -148,6 +141,26 @@
 			this.oArtColumn.ShowTextInHeader = false;
 			this.oArtColumn.Width = 55;
 			// 
+			// oSpecialityColumn
+			// 
+			//this.oSpecialityColumn.AspectName = "Speciality";
+			this.oSpecialityColumn.Text = "Erityisala";
+			this.oSpecialityColumn.Width = 64;
+			this.oSpecialityColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
+			// 
+			// imageList
+			// 
+			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageList.Images.SetKeyName(0, "starIcon");
+			this.imageList.Images.SetKeyName(1, "dollarIcon");
+			this.imageList.Images.SetKeyName(2, "artistIcon");
+			this.imageList.Images.SetKeyName(3, "programmerIcon");
+			this.imageList.Images.SetKeyName(4, "writerIcon");
+			this.imageList.Images.SetKeyName(5, "soundEngIcon");
+			this.imageList.Images.SetKeyName(6, "designerIcon");
+			this.imageList.Images.SetKeyName(7, "skilllessIcon");
+			// 
 			// HireEmployee
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,7 +177,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.ImageList imageList;
 		private BrightIdeasSoftware.ObjectListView employeeObjectListView;
 		private BrightIdeasSoftware.OLVColumn oNameColumn;
 		private BrightIdeasSoftware.OLVColumn oLevelColumn;
@@ -174,6 +186,8 @@
 		private BrightIdeasSoftware.OLVColumn oDesigningColumn;
 		private BrightIdeasSoftware.OLVColumn oSoundEngineeringColumn;
 		private BrightIdeasSoftware.OLVColumn oArtColumn;
+		private System.Windows.Forms.ImageList imageList;
+		private OLVColumn oSpecialityColumn;
 
 	}
 }
