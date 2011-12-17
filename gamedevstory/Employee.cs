@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
 using Skill = gamedevstory.EmployeeInfo.Skill;
+
 namespace gamedevstory
 {
 	public class Employee
@@ -13,8 +12,8 @@ namespace gamedevstory
 
 		public string FirstName;
 		public string LastName;
-		public byte Level = 1; // from 1 to 10
-		public int Wage;
+		public byte Level{ get; set;} // from 1 to 10
+		public int Wage{ get; set;}
 		public int Experience;
 		public byte Stress; // from 0 to 10
 		public Skill Speciality;
@@ -22,7 +21,7 @@ namespace gamedevstory
 
 		public Dictionary<Skill, byte> Skills; // skill levels go from 1 to 100
 
-		public Employee(string firstName, string lastName, byte level, int wage, Dictionary<EmployeeInfo.Skill, byte> skills, EmployeeInfo.Skill speciality)
+		public Employee(string firstName, string lastName, byte level, int wage, Dictionary<Skill, byte> skills, Skill speciality)
 		{
 			FirstName = firstName;
 			LastName = lastName;
@@ -33,14 +32,39 @@ namespace gamedevstory
 			UniqueId = firstName.GetHashCode() + lastName.GetHashCode() + level.GetHashCode() + wage.GetHashCode();
 		}
 
-		public string GetFullName()
+		public string FullName
 		{
-			return FirstName + " " + LastName;
+			get{return FirstName + " " + LastName;}
 		}
 		
-		public byte GetProgrammingSkill()
+		public byte ProgrammingSkill
 		{
-			return Skills[Skill.Programming];
+			get{ return Skills[Skill.Programming]; }
+			set{ Skills[Skill.Programming] = value; }
+		}
+
+		public byte WritingSkill
+		{
+			get{ return Skills[Skill.Writing]; }
+			set{ Skills[Skill.Writing] = value; }
+		}
+
+		public byte ArtSkill
+		{
+			get{ return Skills[Skill.Art]; }
+			set{ Skills[Skill.Art] = value; }
+		}
+
+		public byte SoundEngineeringSkill
+		{
+			get { return Skills[Skill.SoundEngineering]; }
+			set { Skills[Skill.SoundEngineering] = value; }
+		}
+
+		public byte DesigningSkill
+		{
+			get { return Skills[Skill.Designing]; }
+			set { Skills[Skill.Designing] = value; }
 		}
 
 		public override string ToString()
@@ -54,7 +78,7 @@ namespace gamedevstory
 			return builder.ToString();
 		}
 
-		public static Employee GenerateNew(byte minLevel, byte maxLevel, EmployeeInfo.Skill speciality = EmployeeInfo.Skill.Nothing, bool noSkills = false, Random random = null)
+		public static Employee GenerateNew(byte minLevel, byte maxLevel, Skill speciality = Skill.Nothing, bool noSkills = false, Random random = null)
 		{
 			var rand = random ?? new Random();
 			var firstName = Utils.GetRandomString(EmployeeInfo.FirstNames, rand);
@@ -63,11 +87,11 @@ namespace gamedevstory
 			var wage = rand.Next((int)(MinimumWage * level * 0.75f), (int)(MinimumWage * level * 1.5f));
 			var skills = new Dictionary<Skill, byte>();
 			var spec = speciality;
-			if (speciality == EmployeeInfo.Skill.Nothing && noSkills == false)
+			if (speciality == Skill.Nothing && noSkills == false)
 			{
-				spec = Utils.GetRandomEnum<EmployeeInfo.Skill>(rand);
+				spec = Utils.GetRandomEnum<Skill>(rand);
 			}
-			foreach (EmployeeInfo.Skill skill in Enum.GetValues(typeof(EmployeeInfo.Skill)))
+			foreach (Skill skill in Enum.GetValues(typeof(Skill)))
 			{
 				byte skillLevel;
 				if(skill == spec)
@@ -85,41 +109,5 @@ namespace gamedevstory
 			return new Employee(firstName, lastName, level, wage, skills, spec);
 		}
 	}
-	public static class EmployeeInfo
-	{
-		public enum Skill
-		{
-			Programming,
-			Writing,
-			Designing,
-			SoundEngineering,
-			Art,
-			Nothing
-		}
 
-		public static string[] FirstNames = new string[]
-		{
-			"Bobby",
-			"Gabe",
-			"Markus",
-			"Will",
-			"Shigeru",
-			"Peter",
-			"John",
-			"Chris"              		
-		};
-
-		public static string[] LastNames = new string[]
-		{
-			"Kotick",
-			"Newell",
-			"Persson",
-			"Wright",
-			"Miyamoto",
-			"Molyneux",
-			"Romero",
-			"Carmack",
-			"Sawyer"              		
-		};
-	}
 }

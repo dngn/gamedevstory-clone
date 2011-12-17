@@ -11,7 +11,8 @@ namespace gamedevstory
 {
 	public partial class HireEmployee : Form
 	{
-		private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
+		//private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
+		private readonly List<Employee> _employees = new List<Employee>();
 		private bool _generateNewEmployees; // TODO: not used
 		public HireEmployee(bool generateNewEmployees = false)
 		{
@@ -26,7 +27,7 @@ namespace gamedevstory
 			{
 				var employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
 
-				_employees.Add(employee.UniqueId, employee);
+				_employees.Add(employee);
 				var item = new ListViewItem
 				{
 					Text = employee.FirstName + ' ' + employee.LastName,
@@ -39,31 +40,38 @@ namespace gamedevstory
 				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Designing].ToString()));
 				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.SoundEngineering].ToString()));
 				item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Skills[Skill.Art].ToString()));
-				employeeListView.Items.Add(item);
 				switch (employee.Speciality)
 				{
 					case Skill.Art:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["artist"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["artist"];
+						item.Group = employeeListView.Groups["artist"];
 						break;
 					case Skill.Writing:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["writer"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["writer"];
+						item.Group = employeeListView.Groups["writer"];
 						break;
 					case Skill.Programming:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["programmer"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["programmer"];
+						item.Group = employeeListView.Groups["programmer"];
 						break;
 					case Skill.Designing:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["designer"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["designer"];
+						item.Group = employeeListView.Groups["designer"];
 						break;
 					case Skill.SoundEngineering:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["soundEngineer"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["soundEngineer"];
+						item.Group = employeeListView.Groups["soundEngineer"];
 						break;
 					case Skill.Nothing:
-						employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["nothing"];
+						//employeeListView.Items[employeeListView.Items.Count - 1].Group = employeeListView.Groups["nothing"];
+						item.Group = employeeListView.Groups["nothing"];
 						break;
 					default:
-						MessageBox.Show(employee.Speciality.ToString());
+						//MessageBox.Show(employee.Speciality.ToString());
 						break;
 				}
+				employeeListView.Items.Add(item);
+				employeeObjectListView.SetObjects(_employees);
 			}
 		}
 
