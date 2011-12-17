@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Skill = gamedevstory.EmployeeInfo.Skill;
 namespace gamedevstory
 {
 	public class Employee
 	{
+
 		public const int MinimumWage = 100;
 
 		public string FirstName;
@@ -15,10 +17,10 @@ namespace gamedevstory
 		public int Wage;
 		public int Experience;
 		public byte Stress; // from 0 to 10
-		public EmployeeInfo.Skill Speciality;
+		public Skill Speciality;
 		public int UniqueId;
 
-		public Dictionary<EmployeeInfo.Skill, byte> Skills; // skill levels go from 1 to 100
+		public Dictionary<Skill, byte> Skills; // skill levels go from 1 to 100
 
 		public Employee(string firstName, string lastName, byte level, int wage, Dictionary<EmployeeInfo.Skill, byte> skills, EmployeeInfo.Skill speciality)
 		{
@@ -29,6 +31,16 @@ namespace gamedevstory
 			Skills = skills;
 			Speciality = speciality;
 			UniqueId = firstName.GetHashCode() + lastName.GetHashCode() + level.GetHashCode() + wage.GetHashCode();
+		}
+
+		public string GetFullName()
+		{
+			return FirstName + " " + LastName;
+		}
+		
+		public byte GetProgrammingSkill()
+		{
+			return Skills[Skill.Programming];
 		}
 
 		public override string ToString()
@@ -49,7 +61,7 @@ namespace gamedevstory
 			var lastName = Utils.GetRandomString(EmployeeInfo.LastNames, rand);
 			var level = (byte) rand.Next(minLevel, maxLevel);
 			var wage = rand.Next((int)(MinimumWage * level * 0.75f), (int)(MinimumWage * level * 1.5f));
-			var skills = new Dictionary<EmployeeInfo.Skill, byte>();
+			var skills = new Dictionary<Skill, byte>();
 			var spec = speciality;
 			if (speciality == EmployeeInfo.Skill.Nothing && noSkills == false)
 			{
