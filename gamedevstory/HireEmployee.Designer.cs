@@ -46,20 +46,21 @@
 			this.soundEngineeringColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.artColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.imageList = new System.Windows.Forms.ImageList(this.components);
+			this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+			((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// employeeListView
 			// 
 			this.employeeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.nameColumn,
-            this.levelColumn,
-            this.wageColumn,
-            this.programmingColumn,
-            this.writingColumn,
-            this.designingColumn,
-            this.soundEngineeringColumn,
-            this.artColumn});
-			this.employeeListView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nameColumn,
+			this.levelColumn,
+			this.wageColumn,
+			this.programmingColumn,
+			this.writingColumn,
+			this.designingColumn,
+			this.soundEngineeringColumn,
+			this.artColumn});
 			listViewGroup1.Header = "Ohjelmoija";
 			listViewGroup1.Name = "programmer";
 			listViewGroup2.Header = "Graafikko";
@@ -73,16 +74,16 @@
 			listViewGroup6.Header = "Epäpätevä";
 			listViewGroup6.Name = "nothing";
 			this.employeeListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
-			this.employeeListView.Location = new System.Drawing.Point(0, 0);
+			listViewGroup1,
+			listViewGroup2,
+			listViewGroup3,
+			listViewGroup4,
+			listViewGroup5,
+			listViewGroup6});
+			this.employeeListView.Location = new System.Drawing.Point(0, 183);
 			this.employeeListView.MultiSelect = false;
 			this.employeeListView.Name = "employeeListView";
-			this.employeeListView.Size = new System.Drawing.Size(526, 347);
+			this.employeeListView.Size = new System.Drawing.Size(348, 164);
 			this.employeeListView.SmallImageList = this.imageList;
 			this.employeeListView.TabIndex = 2;
 			this.employeeListView.UseCompatibleStateImageBehavior = false;
@@ -138,15 +139,26 @@
 			this.imageList.Images.SetKeyName(3, "soundEngIcon");
 			this.imageList.Images.SetKeyName(4, "designerIcon");
 			// 
-			// HireEmployee
+			// objectListView1
+			// 
+			this.objectListView1.Location = new System.Drawing.Point(12, 12);
+			this.objectListView1.Name = "objectListView1";
+			this.objectListView1.Size = new System.Drawing.Size(502, 165);
+			this.objectListView1.TabIndex = 3;
+			this.objectListView1.UseCompatibleStateImageBehavior = false;
+			this.objectListView1.View = System.Windows.Forms.View.Details;
+			// 
+			// HireEmployeeObjectView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(526, 347);
+			this.Controls.Add(this.objectListView1);
 			this.Controls.Add(this.employeeListView);
-			this.Name = "HireEmployee";
+			this.Name = "HireEmployeeObjectView";
 			this.Text = "HireEmployee";
 			this.Load += new System.EventHandler(this.HireEmployee_Load);
+			((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -163,6 +175,7 @@
 		private System.Windows.Forms.ColumnHeader soundEngineeringColumn;
 		private System.Windows.Forms.ColumnHeader artColumn;
 		private System.Windows.Forms.ImageList imageList;
+		private BrightIdeasSoftware.ObjectListView objectListView1;
 
 	}
 }
