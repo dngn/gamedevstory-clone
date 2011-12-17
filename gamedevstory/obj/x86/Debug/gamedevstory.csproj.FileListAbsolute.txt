@@ -1,0 +1,11 @@
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\bin\Debug\gamedevstory.exe
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\bin\Debug\gamedevstory.pdb
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.ManageEmployees.resources
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.Properties.Resources.resources
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.exe
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.pdb
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.HireEmployee.resources
+C:\Users\Käyttäjä\Desktop\Ohjelmointi\C#\gamedevstory\gamedevstory\obj\x86\Debug\gamedevstory.MainWindow.resources
