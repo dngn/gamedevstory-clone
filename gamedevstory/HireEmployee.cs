@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BrightIdeasSoftware;
 using Skill = gamedevstory.EmployeeInfo.Skill;
 namespace gamedevstory
 {
@@ -22,33 +23,19 @@ namespace gamedevstory
 
 		private void HireEmployee_Load(object sender, EventArgs e)
 		{
-			/*var generatedNames = new List<string>();
-			var rand = new Random();
-			for (var i = 0; i < 10; i++)
-			{
-				Employee employee;
-				do
-				{
-					employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
-				} while (generatedNames.Contains(employee.FullName));
-				if (employee.FullName == "Markus Persson")
-					employee.ProgrammingSkill = 0;
-				_employees.Add(employee);
-				generatedNames.Add(employee.FullName);
-			}*/
 			GenerateNewEmployees(20);
 			employeeObjectListView.SetObjects(_employees);
+			oSpecialityColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
 		}
 
 		private void employeeObjectListView_DoubleClick(object sender, EventArgs e)
 		{
-			if (employeeObjectListView.SelectedObject != null)
-			{
-				var emp = (Employee) employeeObjectListView.SelectedObject;
-				Console.WriteLine(emp.ToString());
-				Company.Employees.Add(emp);
-				_employees.Remove(emp);
-			}
+			if (employeeObjectListView.SelectedObject == null) return;
+
+			var emp = (Employee) employeeObjectListView.SelectedObject;
+			Console.WriteLine(emp.ToString());
+			Company.Employees.Add(emp);
+			_employees.Remove(emp);
 		}
 
 		public void GenerateNewEmployees(int count)

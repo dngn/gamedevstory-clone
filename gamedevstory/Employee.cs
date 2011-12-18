@@ -32,9 +32,14 @@ namespace gamedevstory
 			UniqueId = firstName.GetHashCode() + lastName.GetHashCode() + level.GetHashCode() + wage.GetHashCode();
 		}
 
+		public string SpecialityLocalized
+		{
+			get { return Speciality.ToString(); }
+		}
+
 		public string FullName
 		{
-			get{return FirstName + " " + LastName;}
+			get{ return FirstName + " " + LastName; }
 		}
 		
 		public byte ProgrammingSkill

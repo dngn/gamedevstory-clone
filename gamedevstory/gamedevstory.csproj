@@ -63,6 +63,8 @@
     <Compile Include="HireEmployee.Designer.cs">
       <DependentUpon>HireEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="IniParser.cs" />
+    <Compile Include="Localization.cs" />
     <Compile Include="ManageEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +83,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringIniParser.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="HireEmployee.resx">
       <DependentUpon>HireEmployee.cs</DependentUpon>

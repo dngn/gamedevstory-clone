@@ -2,14 +2,16 @@ namespace gamedevstory
 {
 	public static class EmployeeInfo
 	{
+		public const string writingLocalized = "Kirjoitus";
+
 		public enum Skill
 		{
-			Programming,
-			Writing,
-			Designing,
-			SoundEngineering,
 			Art,
-			Nothing
+			Designing,
+			Nothing,
+			Programming,
+			SoundEngineering,
+			Writing
 		}
 
 		public static string[] FirstNames = new[]

@@ -47,8 +47,7 @@ namespace gamedevstory
 			this.SuspendLayout();
 			// 
 			// employeeObjectListView
-			//	 
-			this.employeeObjectListView.RowHeight = 24;
+			// 
 			this.employeeObjectListView.AllColumns.Add(this.oNameColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oLevelColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oWageColumn);
@@ -60,21 +59,23 @@ namespace gamedevstory
 			this.employeeObjectListView.AllColumns.Add(this.oSpecialityColumn);
 			this.employeeObjectListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.employeeObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-			this.oNameColumn,
-			this.oLevelColumn,
-			this.oWageColumn,
-			this.oProgrammingColumn,
-			this.oWritingColumn,
-			this.oDesigningColumn,
-			this.oSoundEngineeringColumn,
-			this.oArtColumn,
-			this.oSpecialityColumn});
+            this.oNameColumn,
+            this.oLevelColumn,
+            this.oWageColumn,
+            this.oProgrammingColumn,
+            this.oWritingColumn,
+            this.oDesigningColumn,
+            this.oSoundEngineeringColumn,
+            this.oArtColumn,
+            this.oSpecialityColumn});
 			this.employeeObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
 			this.employeeObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.employeeObjectListView.HeaderUsesThemes = false;
 			this.employeeObjectListView.Location = new System.Drawing.Point(0, 0);
 			this.employeeObjectListView.Name = "employeeObjectListView";
+			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.ShowGroups = false;
+			this.employeeObjectListView.ShowImagesOnSubItems = true;
 			this.employeeObjectListView.Size = new System.Drawing.Size(699, 429);
 			this.employeeObjectListView.SmallImageList = this.imageList;
 			this.employeeObjectListView.TabIndex = 3;
@@ -143,10 +144,9 @@ namespace gamedevstory
 			// 
 			// oSpecialityColumn
 			// 
-			//this.oSpecialityColumn.AspectName = "Speciality";
+			this.oSpecialityColumn.AspectName = "SpecialityLocalized";
 			this.oSpecialityColumn.Text = "Erityisala";
-			this.oSpecialityColumn.Width = 64;
-			this.oSpecialityColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
+			this.oSpecialityColumn.Width = 90;
 			// 
 			// imageList
 			// 

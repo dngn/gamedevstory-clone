@@ -14,6 +14,8 @@ namespace gamedevstory
 		static void Main()
 		{
 			Company.InitializeCompany();
+			Localization.LoadLocalizationFile();
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainWindow());

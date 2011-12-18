@@ -54,7 +54,6 @@ namespace gamedevstory
 			// 
 			// employeeObjectListView
 			// 
-			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.AllColumns.Add(this.oNameColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oLevelColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oWageColumn);
@@ -77,7 +76,9 @@ namespace gamedevstory
 			this.employeeObjectListView.HeaderUsesThemes = false;
 			this.employeeObjectListView.Location = new System.Drawing.Point(12, 28);
 			this.employeeObjectListView.Name = "employeeObjectListView";
+			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.ShowGroups = false;
+			this.employeeObjectListView.ShowImagesOnSubItems = true;
 			this.employeeObjectListView.Size = new System.Drawing.Size(689, 366);
 			this.employeeObjectListView.SmallImageList = this.imageList;
 			this.employeeObjectListView.TabIndex = 4;
@@ -93,7 +94,6 @@ namespace gamedevstory
 			this.oNameColumn.Text = "Nimi";
 			this.oNameColumn.UseInitialLetterForGroup = true;
 			this.oNameColumn.Width = 120;
-			this.oNameColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
 			// 
 			// oLevelColumn
 			// 
