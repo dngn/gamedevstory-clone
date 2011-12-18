@@ -18,7 +18,7 @@ namespace gamedevstory
 
 		private void hireEmployeesButton_Click(object sender, EventArgs e)
 		{
-			var hire = new HireEmployee();
+			var hire = new HireEmployees();
 			hire.Show();
 		}
 
@@ -37,7 +37,7 @@ namespace gamedevstory
 
 		private void hireEmployeeButton_Click(object sender, EventArgs e)
 		{
-			var hireEmployee = new HireEmployee();
+			var hireEmployee = new HireEmployees();
 			hireEmployee.Show();
 		}
 	}

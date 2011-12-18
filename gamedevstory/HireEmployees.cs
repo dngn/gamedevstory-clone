@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using Skill = gamedevstory.EmployeeInfo.Skill;
 namespace gamedevstory
 {
-	public partial class HireEmployee : Form
+	public partial class HireEmployees : Form
 	{
 		//private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
 		private readonly List<Employee> _employees = new List<Employee>();
 		private bool _generateNewEmployees; // TODO: not used
-		public HireEmployee(bool generateNewEmployees = false)
+		public HireEmployees(bool generateNewEmployees = false)
 		{
 			InitializeComponent();
 			_generateNewEmployees = generateNewEmployees;
@@ -43,6 +38,7 @@ namespace gamedevstory
 		private void LocalizeForm()
 		{
 			Text = Localization.GetLocalization("HireEmployee.Title");
+			oNameColumn.Text = Localization.GetLocalization("Name");
 			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
 		}
 
