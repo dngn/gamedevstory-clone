@@ -34,7 +34,7 @@ namespace gamedevstory
 
 		public string SpecialityLocalized
 		{
-			get { return Speciality.ToString(); }
+			get { return Localization.GetLocalization("Skill." + Speciality); }
 		}
 
 		public string FullName

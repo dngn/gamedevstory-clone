@@ -7,14 +7,11 @@ namespace gamedevstory
 {
 	static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
 		[STAThread]
 		static void Main()
 		{
 			Company.InitializeCompany();
-			Localization.LoadLocalizationFile();
+			Localization.LoadLocalizationFile("localizations.ini");
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

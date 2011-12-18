@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace gamedevstory
 {
 	public static class Localization
 	{
 		private static Dictionary<string, Dictionary<string, string>> _localizations;
+		public static string CurrentLanguage = "English";
 
 		public static void LoadLocalizationFile(string fileName)
 		{
@@ -12,9 +14,14 @@ namespace gamedevstory
 			_localizations = parser.SettingCollection;
 		}
 
-		public static string GetLocalization(string language, string stringName)
+		public static string GetLocalization(string stringName)
 		{
-			return _localizations[language][stringName];
+			if (!_localizations[CurrentLanguage].ContainsKey(stringName))
+			{
+				Console.WriteLine("Missing localization: " + stringName);
+				return stringName;
+			}
+			return _localizations[CurrentLanguage][stringName];
 		}
 	}
 }

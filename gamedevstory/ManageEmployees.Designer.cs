@@ -172,7 +172,6 @@ namespace gamedevstory
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(713, 22);
 			this.statusStrip.TabIndex = 5;
-			this.statusStrip.Text = "statusStrip1";
 			// 
 			// monthlyCostsLabel
 			// 

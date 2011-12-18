@@ -19,6 +19,7 @@ namespace gamedevstory
 		{
 			InitializeComponent();
 			_generateNewEmployees = generateNewEmployees;
+			LocalizeForm();
 		}
 
 		private void HireEmployee_Load(object sender, EventArgs e)
@@ -36,6 +37,13 @@ namespace gamedevstory
 			Console.WriteLine(emp.ToString());
 			Company.Employees.Add(emp);
 			_employees.Remove(emp);
+			employeeObjectListView.RemoveObject(emp);
+		}
+
+		private void LocalizeForm()
+		{
+			Text = Localization.GetLocalization("HireEmployee.Title");
+			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
 		}
 
 		public void GenerateNewEmployees(int count)
@@ -52,6 +60,9 @@ namespace gamedevstory
 					employee = Employee.GenerateNew(Company.MinimunNormalEmployeeLevel, Company.MaximumNormalEmployeeLevel, Skill.Nothing, false, rand);
 				} while (generatedNames.Contains(employee.FullName));
 
+				if (employee.FullName == "Markus Persson")
+					employee.ProgrammingSkill = 0;
+
 				generatedNames.Add(employee.FullName);
 				_employees.Add(employee);
 			}
@@ -63,6 +74,9 @@ namespace gamedevstory
 				{
 					employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
 				} while (generatedNames.Contains(employee.FullName));
+
+				if (employee.FullName == "Markus Persson")
+					employee.ProgrammingSkill = 0;
 
 				generatedNames.Add(employee.FullName);
 				_employees.Add(employee);

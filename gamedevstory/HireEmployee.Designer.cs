@@ -89,7 +89,7 @@ namespace gamedevstory
 			// oNameColumn
 			// 
 			this.oNameColumn.AspectName = "FullName";
-			this.oNameColumn.Text = "Nimi";
+			this.oNameColumn.Text = "Name";
 			this.oNameColumn.Width = 120;
 			// 
 			// oLevelColumn
@@ -145,7 +145,7 @@ namespace gamedevstory
 			// oSpecialityColumn
 			// 
 			this.oSpecialityColumn.AspectName = "SpecialityLocalized";
-			this.oSpecialityColumn.Text = "Erityisala";
+			this.oSpecialityColumn.Text = "Speciality";
 			this.oSpecialityColumn.Width = 90;
 			// 
 			// imageList
