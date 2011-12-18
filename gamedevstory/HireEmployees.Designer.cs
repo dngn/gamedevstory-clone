@@ -84,7 +84,7 @@ namespace gamedevstory
 			this.employeeObjectListView.UseHotItem = true;
 			this.employeeObjectListView.UseTranslucentHotItem = true;
 			this.employeeObjectListView.View = System.Windows.Forms.View.Details;
-			this.employeeObjectListView.DoubleClick += new System.EventHandler(this.employeeObjectListView_DoubleClick);
+			this.employeeObjectListView.DoubleClick += new System.EventHandler(this.EmployeeObjectListViewDoubleClick);
 			// 
 			// oNameColumn
 			// 

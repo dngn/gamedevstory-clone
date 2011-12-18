@@ -9,11 +9,9 @@ namespace gamedevstory
 	{
 		//private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
 		private readonly List<Employee> _employees = new List<Employee>();
-		private bool _generateNewEmployees; // TODO: not used
-		public HireEmployees(bool generateNewEmployees = false)
+		public HireEmployees()
 		{
 			InitializeComponent();
-			_generateNewEmployees = generateNewEmployees;
 			LocalizeForm();
 		}
 
@@ -24,11 +22,11 @@ namespace gamedevstory
 			oSpecialityColumn.ImageGetter = new ImageGetterDelegate(Employee.EmployeeSpecialityImageGetter);
 		}
 
-		private void employeeObjectListView_DoubleClick(object sender, EventArgs e)
+		private void EmployeeObjectListViewDoubleClick(object sender, EventArgs e)
 		{
 			if (employeeObjectListView.SelectedObject == null) return;
 
-			var emp = (Employee) employeeObjectListView.SelectedObject;
+			var emp = (Employee)employeeObjectListView.SelectedObject;
 			Console.WriteLine(emp.ToString());
 			Company.Employees.Add(emp);
 			_employees.Remove(emp);
@@ -39,6 +37,8 @@ namespace gamedevstory
 		{
 			Text = Localization.GetLocalization("HireEmployee.Title");
 			oNameColumn.Text = Localization.GetLocalization("Name");
+			oLevelColumn.Text = Localization.GetLocalization("Level");
+			oWageColumn.Text = Localization.GetLocalization("Wage");
 			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
 		}
 
