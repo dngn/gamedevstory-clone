@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
-using Skill = gamedevstory.EmployeeInfo.Skill;
-namespace gamedevstory
+
+namespace GameDevClone.Forms
 {
 	public partial class HireEmployees : Form
 	{
-		//private readonly Dictionary<int, Employee> _employees = new Dictionary<int, Employee>();
 		private readonly List<Employee> _employees = new List<Employee>();
 		public HireEmployees()
 		{
@@ -58,7 +57,7 @@ namespace gamedevstory
 
 				do
 				{
-					employee = Employee.GenerateNew(Company.MinimunNormalEmployeeLevel, Company.MaximumNormalEmployeeLevel, Skill.Nothing, false, rand);
+					employee = Employee.GenerateNew(Company.MinimunNormalEmployeeLevel, Company.MaximumNormalEmployeeLevel, EmployeeInfo.Skill.Nothing, false, rand);
 				} while (generatedNames.Contains(employee.FullName));
 
 				if (employee.FullName == "Markus Persson")
@@ -73,7 +72,7 @@ namespace gamedevstory
 
 				do
 				{
-					employee = Employee.GenerateNew(1, 10, Skill.Nothing, false, rand);
+					employee = Employee.GenerateNew(1, 10, EmployeeInfo.Skill.Nothing, false, rand);
 				} while (generatedNames.Contains(employee.FullName));
 
 				if (employee.FullName == "Markus Persson")

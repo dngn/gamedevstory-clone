@@ -1,4 +1,4 @@
-namespace gamedevstory
+namespace GameDevClone
 {
 	public static class EmployeeInfo
 	{

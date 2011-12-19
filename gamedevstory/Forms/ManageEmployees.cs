@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace gamedevstory
+namespace GameDevClone.Forms
 {
 	public partial class ManageEmployees : Form
 	{
@@ -68,7 +68,6 @@ namespace gamedevstory
 		{
 			Hide();
 			e.Cancel = true;
-			//Parent.Focus();
 		}
 	}
 }

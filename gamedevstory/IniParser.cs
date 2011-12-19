@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Text;
 using System.IO;
 
-namespace gamedevstory
+namespace GameDevClone
 {
 	public class IniParser
 	{

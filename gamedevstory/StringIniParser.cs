@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace gamedevstory
+namespace GameDevClone
 {
 	public class StringIniParser
 	{
@@ -18,7 +17,6 @@ namespace gamedevstory
 			SettingCollection = new Dictionary<string, Dictionary<string, string>>();
 			SettingCollection["default"] = new Dictionary<string, string>();
 			ReadIni();
-			SaveIni("lolz.ini");
 		}
 
 		public void ReadIni()

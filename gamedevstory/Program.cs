@@ -1,21 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using GameDevClone.Forms;
 
-namespace gamedevstory
+namespace GameDevClone
 {
 	static class Program
 	{
 		[STAThread]
 		static void Main()
 		{
+			LoadConfigs();
 			Company.InitializeCompany();
-			Localization.LoadLocalizationFile("localizations.ini");
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainWindow());
+		}
+
+		static void LoadConfigs()
+		{
+			Localization.LoadLocalizationFile("localizations.ini");
+			Contract.LoadContracts("contracts.ini");
 		}
 	}
 }

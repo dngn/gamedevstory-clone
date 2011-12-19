@@ -1,4 +1,4 @@
-﻿namespace gamedevstory
+﻿namespace GameDevClone.Forms
 {
 	partial class MainWindow
 	{

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Skill = gamedevstory.EmployeeInfo.Skill;
 
-namespace gamedevstory
+namespace GameDevClone
 {
 	public class Employee
 	{
@@ -16,12 +15,12 @@ namespace gamedevstory
 		public int Wage{ get; set;}
 		public int Experience;
 		public byte Stress; // from 0 to 10
-		public Skill Speciality;
+		public EmployeeInfo.Skill Speciality;
 		public int UniqueId;
 
-		public Dictionary<Skill, byte> Skills; // skill levels go from 1 to 100
+		public Dictionary<EmployeeInfo.Skill, byte> Skills; // skill levels go from 1 to 100
 
-		public Employee(string firstName, string lastName, byte level, int wage, Dictionary<Skill, byte> skills, Skill speciality)
+		public Employee(string firstName, string lastName, byte level, int wage, Dictionary<EmployeeInfo.Skill, byte> skills, EmployeeInfo.Skill speciality)
 		{
 			FirstName = firstName;
 			LastName = lastName;
@@ -44,32 +43,32 @@ namespace gamedevstory
 		
 		public byte ProgrammingSkill
 		{
-			get{ return Skills[Skill.Programming]; }
-			set{ Skills[Skill.Programming] = value; }
+			get{ return Skills[EmployeeInfo.Skill.Programming]; }
+			set{ Skills[EmployeeInfo.Skill.Programming] = value; }
 		}
 
 		public byte WritingSkill
 		{
-			get{ return Skills[Skill.Writing]; }
-			set{ Skills[Skill.Writing] = value; }
+			get{ return Skills[EmployeeInfo.Skill.Writing]; }
+			set{ Skills[EmployeeInfo.Skill.Writing] = value; }
 		}
 
 		public byte ArtSkill
 		{
-			get{ return Skills[Skill.Art]; }
-			set{ Skills[Skill.Art] = value; }
+			get{ return Skills[EmployeeInfo.Skill.Art]; }
+			set{ Skills[EmployeeInfo.Skill.Art] = value; }
 		}
 
 		public byte SoundEngineeringSkill
 		{
-			get { return Skills[Skill.SoundEngineering]; }
-			set { Skills[Skill.SoundEngineering] = value; }
+			get { return Skills[EmployeeInfo.Skill.SoundEngineering]; }
+			set { Skills[EmployeeInfo.Skill.SoundEngineering] = value; }
 		}
 
 		public byte DesigningSkill
 		{
-			get { return Skills[Skill.Designing]; }
-			set { Skills[Skill.Designing] = value; }
+			get { return Skills[EmployeeInfo.Skill.Designing]; }
+			set { Skills[EmployeeInfo.Skill.Designing] = value; }
 		}
 
 		public override string ToString()
@@ -83,20 +82,20 @@ namespace gamedevstory
 			return builder.ToString();
 		}
 
-		public static Employee GenerateNew(byte minLevel, byte maxLevel, Skill speciality = Skill.Nothing, bool noSkills = false, Random random = null)
+		public static Employee GenerateNew(byte minLevel, byte maxLevel, EmployeeInfo.Skill speciality = EmployeeInfo.Skill.Nothing, bool noSkills = false, Random random = null)
 		{
 			var rand = random ?? new Random();
 			var firstName = Utils.GetRandomString(EmployeeInfo.FirstNames, rand);
 			var lastName = Utils.GetRandomString(EmployeeInfo.LastNames, rand);
 			var level = (byte) rand.Next(minLevel, maxLevel + 1);
 			var wage = rand.Next((int)(MinimumWage * level * 0.75f), (int)(MinimumWage * level * 1.5f));
-			var skills = new Dictionary<Skill, byte>();
+			var skills = new Dictionary<EmployeeInfo.Skill, byte>();
 			var spec = speciality;
-			if (speciality == Skill.Nothing && noSkills == false)
+			if (speciality == EmployeeInfo.Skill.Nothing && noSkills == false)
 			{
-				spec = Utils.GetRandomEnum<Skill>(rand);
+				spec = Utils.GetRandomEnum<EmployeeInfo.Skill>(rand);
 			}
-			foreach (Skill skill in Enum.GetValues(typeof(Skill)))
+			foreach (EmployeeInfo.Skill skill in Enum.GetValues(typeof(EmployeeInfo.Skill)))
 			{
 				byte skillLevel;
 				if(skill == spec)
@@ -119,17 +118,17 @@ namespace gamedevstory
 			var emp = (Employee) rowObject;
 			switch (emp.Speciality)
 			{
-				case Skill.Art:
+				case EmployeeInfo.Skill.Art:
 					return "artistIcon";
-				case Skill.Programming:
+				case EmployeeInfo.Skill.Programming:
 					return "programmerIcon";
-				case Skill.SoundEngineering:
+				case EmployeeInfo.Skill.SoundEngineering:
 					return "soundEngIcon";
-				case Skill.Designing:
+				case EmployeeInfo.Skill.Designing:
 					return "designerIcon";
-				case Skill.Writing:
+				case EmployeeInfo.Skill.Writing:
 					return "writerIcon";
-				case Skill.Nothing:
+				case EmployeeInfo.Skill.Nothing:
 					return "skilllessIcon";
 				default:
 					return null;
