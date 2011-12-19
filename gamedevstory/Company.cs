@@ -25,6 +25,17 @@ namespace GameDevClone
 			}
 		}
 
+		public static byte MaximumNumberOfProjects
+		{
+			get
+			{
+				if (Level <= 3)
+					return (byte)(1 + Level);
+				if (Level <= 5)
+					return (byte) (2 + Level);
+			}
+		}
+
 		public static byte MaximumNormalEmployeeLevel
 		{
 			get
