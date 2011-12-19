@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace gamedevstory.Properties {
+namespace GameDevClone.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

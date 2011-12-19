@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamedevstory", "gamedevstory\gamedevstory.csproj", "{689C6B7A-2EEB-4111-8EBF-5A381FEE9071}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevClone", "gamedevstory\GameDevClone.csproj", "{689C6B7A-2EEB-4111-8EBF-5A381FEE9071}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
