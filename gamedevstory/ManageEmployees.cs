@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace gamedevstory
@@ -29,10 +24,18 @@ namespace gamedevstory
 
 		private void updateTimer_Tick(object sender, EventArgs e)
 		{
-			Console.WriteLine("lol");
+			switch (tickVisualizer.Value)
+			{
+				case 0:
+					tickVisualizer.Value = 100;
+					break;
+				case 100:
+					tickVisualizer.Value = 0;
+					break;
+			}
 			employeeObjectListView.SetObjects(Company.Employees);
 			var costs = Company.Employees.Sum(employee => employee.Wage);
-			monthlyCostsLabel.Text = "Kuukausittaiset menot: " + String.Format("{0:C}", costs);
+			monthlyCostsLabel.Text =  Localization.GetLocalization("ManageEmployees.MonthlyCosts") + ": " + String.Format("{0:C}", costs);
 		}
 
 		private void hireEmployeeButton_Click(object sender, EventArgs e)

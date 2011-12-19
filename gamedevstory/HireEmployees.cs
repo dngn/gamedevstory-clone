@@ -35,10 +35,15 @@ namespace gamedevstory
 
 		private void LocalizeForm()
 		{
-			Text = Localization.GetLocalization("HireEmployee.Title");
+			Text = Localization.GetLocalization("HireEmployees.Title");
 			oNameColumn.Text = Localization.GetLocalization("Name");
 			oLevelColumn.Text = Localization.GetLocalization("Level");
 			oWageColumn.Text = Localization.GetLocalization("Wage");
+			oProgrammingColumn.Text = Localization.GetLocalization("Skill.Programming");
+			oWritingColumn.Text = Localization.GetLocalization("Skill.Writing");
+			oDesigningColumn.Text = Localization.GetLocalization("Skill.Designing");
+			oSoundEngineeringColumn.Text = Localization.GetLocalization("Skill.SoundEngineering");
+			oArtColumn.Text = Localization.GetLocalization("Skill.Art");
 			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
 		}
 

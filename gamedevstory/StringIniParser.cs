@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -17,6 +18,7 @@ namespace gamedevstory
 			SettingCollection = new Dictionary<string, Dictionary<string, string>>();
 			SettingCollection["default"] = new Dictionary<string, string>();
 			ReadIni();
+			SaveIni("lolz.ini");
 		}
 
 		public void ReadIni()
@@ -65,10 +67,18 @@ namespace gamedevstory
 
 		public void SaveIni(string fileName)
 		{
-			var streamWriter = new StreamWriter(fileName);
-			foreach (var pair in SettingCollection)
+			using (var streamWriter = new StreamWriter(fileName))
 			{
-				streamWriter.WriteLine(pair.Key + "=" + pair.Value);
+				foreach (var category in SettingCollection)
+				{
+					if (category.Key != "default")
+						streamWriter.WriteLine('[' + category.Key + ']');
+					foreach (var pair in SettingCollection[category.Key])
+					{
+						streamWriter.WriteLine(pair.Key + "=" + pair.Value);
+					}
+				}
+				streamWriter.Close();
 			}
 		}
 	}

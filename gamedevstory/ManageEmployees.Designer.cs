@@ -47,6 +47,7 @@ namespace gamedevstory
 			this.monthlyCostsLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip = new System.Windows.Forms.ToolStrip();
 			this.hireEmployeeButton = new System.Windows.Forms.ToolStripButton();
+			this.tickVisualizer = new System.Windows.Forms.ToolStripProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.toolStrip.SuspendLayout();
@@ -167,7 +168,8 @@ namespace gamedevstory
 			// statusStrip
 			// 
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.monthlyCostsLabel});
+            this.monthlyCostsLabel,
+            this.tickVisualizer});
 			this.statusStrip.Location = new System.Drawing.Point(0, 397);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(713, 22);
@@ -197,6 +199,11 @@ namespace gamedevstory
 			this.hireEmployeeButton.Size = new System.Drawing.Size(122, 22);
 			this.hireEmployeeButton.Text = "Palkkaa työntekijä";
 			this.hireEmployeeButton.Click += new System.EventHandler(this.hireEmployeeButton_Click);
+			// 
+			// tickVisualizer
+			// 
+			this.tickVisualizer.Name = "tickVisualizer";
+			this.tickVisualizer.Size = new System.Drawing.Size(100, 16);
 			// 
 			// ManageEmployees
 			// 
@@ -236,5 +243,6 @@ namespace gamedevstory
 		private System.Windows.Forms.ToolStripStatusLabel monthlyCostsLabel;
 		private System.Windows.Forms.ToolStrip toolStrip;
 		private System.Windows.Forms.ToolStripButton hireEmployeeButton;
+		private System.Windows.Forms.ToolStripProgressBar tickVisualizer;
 	}
 }

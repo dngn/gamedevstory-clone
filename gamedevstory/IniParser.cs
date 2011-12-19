@@ -95,10 +95,18 @@ namespace gamedevstory
 
 		public void SaveIni(string fileName)
 		{
-			var streamWriter = new StreamWriter(fileName);
-			foreach (var pair in _settingCollection)
+			using (var streamWriter = new StreamWriter(fileName))
 			{
-				streamWriter.WriteLine(pair.Key + "=" + pair.Value);
+				foreach (var category in _settingCollection)
+				{
+					if(category.Key != "default")
+						streamWriter.WriteLine('[' + category.Key + ']');
+					foreach (var pair in _settingCollection[category.Key])
+					{
+						streamWriter.WriteLine(pair.Key + "=" + pair.Value);
+					}
+				}
+				streamWriter.Close();
 			}
 		}
 	}
