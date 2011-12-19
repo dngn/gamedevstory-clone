@@ -11,6 +11,7 @@ namespace gamedevstory
 {
 	public partial class MainWindow : Form
 	{
+		private ManageEmployees _manageEmployeesForm = new ManageEmployees();
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -18,8 +19,8 @@ namespace gamedevstory
 
 		private void työntekijätToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var employeeForm = new ManageEmployees();
-			employeeForm.Show();
+			_manageEmployeesForm.Show();
+			_manageEmployeesForm.Focus();
 		}
 
 		private void MainWindow_Load(object sender, EventArgs e)

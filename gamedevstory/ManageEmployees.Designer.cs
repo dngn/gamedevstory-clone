@@ -224,6 +224,7 @@ namespace gamedevstory
 			this.Controls.Add(this.statusStrip);
 			this.Name = "ManageEmployees";
 			this.Text = "ManageEmployees";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageEmployees_FormClosing);
 			this.Load += new System.EventHandler(this.ManageEmployees_Load);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();

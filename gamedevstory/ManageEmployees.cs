@@ -21,11 +21,14 @@ namespace gamedevstory
 		private void ManageEmployees_Load(object sender, EventArgs e)
 		{
 			employeeObjectListView.SetObjects(Company.Employees);
+			//kind of hacky
+			updateTimer_Tick(null, null);
 		}
 
 		private void LocalizeForm()
 		{
-			Text = 
+			Text = Localization.GetLocalization("ManageEmployees.Title");
+
 			oNameColumn.Text = Localization.GetLocalization("Name");
 			oLevelColumn.Text = Localization.GetLocalization("Level");
 			oWageColumn.Text = Localization.GetLocalization("Wage");
@@ -35,6 +38,8 @@ namespace gamedevstory
 			oSoundEngineeringColumn.Text = Localization.GetLocalization("Skill.SoundEngineering");
 			oArtColumn.Text = Localization.GetLocalization("Skill.Art");
 			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
+
+			hireEmployeesButton.Text = Localization.GetLocalization("HireEmployees.Title");
 		}
 
 		private void updateTimer_Tick(object sender, EventArgs e)
@@ -57,6 +62,13 @@ namespace gamedevstory
 		{
 			var hireEmployee = new HireEmployees();
 			hireEmployee.Show();
+		}
+
+		private void ManageEmployees_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Hide();
+			e.Cancel = true;
+			//Parent.Focus();
 		}
 	}
 }
