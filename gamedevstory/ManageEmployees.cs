@@ -9,6 +9,7 @@ namespace gamedevstory
 		public ManageEmployees()
 		{
 			InitializeComponent();
+			LocalizeForm();
 		}
 
 		private void hireEmployeesButton_Click(object sender, EventArgs e)
@@ -20,6 +21,20 @@ namespace gamedevstory
 		private void ManageEmployees_Load(object sender, EventArgs e)
 		{
 			employeeObjectListView.SetObjects(Company.Employees);
+		}
+
+		private void LocalizeForm()
+		{
+			Text = 
+			oNameColumn.Text = Localization.GetLocalization("Name");
+			oLevelColumn.Text = Localization.GetLocalization("Level");
+			oWageColumn.Text = Localization.GetLocalization("Wage");
+			oProgrammingColumn.Text = Localization.GetLocalization("Skill.Programming");
+			oWritingColumn.Text = Localization.GetLocalization("Skill.Writing");
+			oDesigningColumn.Text = Localization.GetLocalization("Skill.Designing");
+			oSoundEngineeringColumn.Text = Localization.GetLocalization("Skill.SoundEngineering");
+			oArtColumn.Text = Localization.GetLocalization("Skill.Art");
+			oSpecialityColumn.Text = Localization.GetLocalization("Speciality");
 		}
 
 		private void updateTimer_Tick(object sender, EventArgs e)
@@ -35,7 +50,7 @@ namespace gamedevstory
 			}
 			employeeObjectListView.SetObjects(Company.Employees);
 			var costs = Company.Employees.Sum(employee => employee.Wage);
-			monthlyCostsLabel.Text =  Localization.GetLocalization("ManageEmployees.MonthlyCosts") + ": " + String.Format("{0:C}", costs);
+			monthlyExpensesLabel.Text =  Localization.GetLocalization("ManageEmployees.MonthlyExpenses") + ": " + String.Format("{0:C}", costs);
 		}
 
 		private void hireEmployeeButton_Click(object sender, EventArgs e)

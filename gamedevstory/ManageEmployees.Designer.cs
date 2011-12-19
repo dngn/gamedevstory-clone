@@ -32,6 +32,13 @@ namespace gamedevstory
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEmployees));
+			this.imageList = new System.Windows.Forms.ImageList(this.components);
+			this.updateTimer = new System.Windows.Forms.Timer(this.components);
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.monthlyExpensesLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tickVisualizer = new System.Windows.Forms.ToolStripProgressBar();
+			this.toolStrip = new System.Windows.Forms.ToolStrip();
+			this.hireEmployeesButton = new System.Windows.Forms.ToolStripButton();
 			this.employeeObjectListView = new BrightIdeasSoftware.ObjectListView();
 			this.oNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oLevelColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -41,17 +48,70 @@ namespace gamedevstory
 			this.oDesigningColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oSoundEngineeringColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.oArtColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-			this.imageList = new System.Windows.Forms.ImageList(this.components);
-			this.updateTimer = new System.Windows.Forms.Timer(this.components);
-			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.monthlyCostsLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStrip = new System.Windows.Forms.ToolStrip();
-			this.hireEmployeeButton = new System.Windows.Forms.ToolStripButton();
-			this.tickVisualizer = new System.Windows.Forms.ToolStripProgressBar();
-			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).BeginInit();
+			this.oSpecialityColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
 			this.statusStrip.SuspendLayout();
 			this.toolStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// imageList
+			// 
+			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageList.Images.SetKeyName(0, "starIcon");
+			this.imageList.Images.SetKeyName(1, "dollarIcon");
+			this.imageList.Images.SetKeyName(2, "artistIcon");
+			this.imageList.Images.SetKeyName(3, "programmerIcon");
+			this.imageList.Images.SetKeyName(4, "writerIcon");
+			this.imageList.Images.SetKeyName(5, "soundEngIcon");
+			this.imageList.Images.SetKeyName(6, "designerIcon");
+			this.imageList.Images.SetKeyName(7, "skilllessIcon");
+			// 
+			// updateTimer
+			// 
+			this.updateTimer.Enabled = true;
+			this.updateTimer.Interval = 1000;
+			this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+			// 
+			// statusStrip
+			// 
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.monthlyExpensesLabel,
+            this.tickVisualizer});
+			this.statusStrip.Location = new System.Drawing.Point(0, 397);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(713, 22);
+			this.statusStrip.TabIndex = 5;
+			// 
+			// monthlyExpensesLabel
+			// 
+			this.monthlyExpensesLabel.Name = "monthlyExpensesLabel";
+			this.monthlyExpensesLabel.Size = new System.Drawing.Size(161, 17);
+			this.monthlyExpensesLabel.Text = "Kuukausittaiset menot: 0,00 €";
+			// 
+			// tickVisualizer
+			// 
+			this.tickVisualizer.Name = "tickVisualizer";
+			this.tickVisualizer.Size = new System.Drawing.Size(100, 16);
+			// 
+			// toolStrip
+			// 
+			this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hireEmployeesButton});
+			this.toolStrip.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip.Name = "toolStrip";
+			this.toolStrip.Size = new System.Drawing.Size(713, 25);
+			this.toolStrip.TabIndex = 6;
+			this.toolStrip.Text = "toolStrip1";
+			// 
+			// hireEmployeesButton
+			// 
+			this.hireEmployeesButton.Image = ((System.Drawing.Image)(resources.GetObject("hireEmployeesButton.Image")));
+			this.hireEmployeesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.hireEmployeesButton.Name = "hireEmployeesButton";
+			this.hireEmployeesButton.Size = new System.Drawing.Size(122, 22);
+			this.hireEmployeesButton.Text = "Palkkaa työntekijä";
+			this.hireEmployeesButton.Click += new System.EventHandler(this.hireEmployeeButton_Click);
 			// 
 			// employeeObjectListView
 			// 
@@ -63,6 +123,7 @@ namespace gamedevstory
 			this.employeeObjectListView.AllColumns.Add(this.oDesigningColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oSoundEngineeringColumn);
 			this.employeeObjectListView.AllColumns.Add(this.oArtColumn);
+			this.employeeObjectListView.AllColumns.Add(this.oSpecialityColumn);
 			this.employeeObjectListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.employeeObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.oNameColumn,
@@ -72,17 +133,19 @@ namespace gamedevstory
             this.oWritingColumn,
             this.oDesigningColumn,
             this.oSoundEngineeringColumn,
-            this.oArtColumn});
+            this.oArtColumn,
+            this.oSpecialityColumn});
 			this.employeeObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
+			this.employeeObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.employeeObjectListView.HeaderUsesThemes = false;
-			this.employeeObjectListView.Location = new System.Drawing.Point(12, 28);
+			this.employeeObjectListView.Location = new System.Drawing.Point(0, 25);
 			this.employeeObjectListView.Name = "employeeObjectListView";
 			this.employeeObjectListView.RowHeight = 24;
 			this.employeeObjectListView.ShowGroups = false;
 			this.employeeObjectListView.ShowImagesOnSubItems = true;
-			this.employeeObjectListView.Size = new System.Drawing.Size(689, 366);
+			this.employeeObjectListView.Size = new System.Drawing.Size(713, 372);
 			this.employeeObjectListView.SmallImageList = this.imageList;
-			this.employeeObjectListView.TabIndex = 4;
+			this.employeeObjectListView.TabIndex = 7;
 			this.employeeObjectListView.UseAlternatingBackColors = true;
 			this.employeeObjectListView.UseCompatibleStateImageBehavior = false;
 			this.employeeObjectListView.UseHotItem = true;
@@ -92,8 +155,7 @@ namespace gamedevstory
 			// oNameColumn
 			// 
 			this.oNameColumn.AspectName = "FullName";
-			this.oNameColumn.Text = "Nimi";
-			this.oNameColumn.UseInitialLetterForGroup = true;
+			this.oNameColumn.Text = "Name";
 			this.oNameColumn.Width = 120;
 			// 
 			// oLevelColumn
@@ -146,81 +208,28 @@ namespace gamedevstory
 			this.oArtColumn.ShowTextInHeader = false;
 			this.oArtColumn.Width = 55;
 			// 
-			// imageList
+			// oSpecialityColumn
 			// 
-			this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-			this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList.Images.SetKeyName(0, "starIcon");
-			this.imageList.Images.SetKeyName(1, "dollarIcon");
-			this.imageList.Images.SetKeyName(2, "artistIcon");
-			this.imageList.Images.SetKeyName(3, "programmerIcon");
-			this.imageList.Images.SetKeyName(4, "writerIcon");
-			this.imageList.Images.SetKeyName(5, "soundEngIcon");
-			this.imageList.Images.SetKeyName(6, "designerIcon");
-			this.imageList.Images.SetKeyName(7, "skilllessIcon");
-			// 
-			// updateTimer
-			// 
-			this.updateTimer.Enabled = true;
-			this.updateTimer.Interval = 1000;
-			this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
-			// 
-			// statusStrip
-			// 
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.monthlyCostsLabel,
-            this.tickVisualizer});
-			this.statusStrip.Location = new System.Drawing.Point(0, 397);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(713, 22);
-			this.statusStrip.TabIndex = 5;
-			// 
-			// monthlyCostsLabel
-			// 
-			this.monthlyCostsLabel.Name = "monthlyCostsLabel";
-			this.monthlyCostsLabel.Size = new System.Drawing.Size(161, 17);
-			this.monthlyCostsLabel.Text = "Kuukausittaiset menot: 0,00 €";
-			// 
-			// toolStrip
-			// 
-			this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hireEmployeeButton});
-			this.toolStrip.Location = new System.Drawing.Point(0, 0);
-			this.toolStrip.Name = "toolStrip";
-			this.toolStrip.Size = new System.Drawing.Size(713, 25);
-			this.toolStrip.TabIndex = 6;
-			this.toolStrip.Text = "toolStrip1";
-			// 
-			// hireEmployeeButton
-			// 
-			this.hireEmployeeButton.Image = ((System.Drawing.Image)(resources.GetObject("hireEmployeeButton.Image")));
-			this.hireEmployeeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.hireEmployeeButton.Name = "hireEmployeeButton";
-			this.hireEmployeeButton.Size = new System.Drawing.Size(122, 22);
-			this.hireEmployeeButton.Text = "Palkkaa työntekijä";
-			this.hireEmployeeButton.Click += new System.EventHandler(this.hireEmployeeButton_Click);
-			// 
-			// tickVisualizer
-			// 
-			this.tickVisualizer.Name = "tickVisualizer";
-			this.tickVisualizer.Size = new System.Drawing.Size(100, 16);
+			this.oSpecialityColumn.AspectName = "SpecialityLocalized";
+			this.oSpecialityColumn.Text = "Speciality";
+			this.oSpecialityColumn.Width = 90;
 			// 
 			// ManageEmployees
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(713, 419);
+			this.Controls.Add(this.employeeObjectListView);
 			this.Controls.Add(this.toolStrip);
 			this.Controls.Add(this.statusStrip);
-			this.Controls.Add(this.employeeObjectListView);
 			this.Name = "ManageEmployees";
 			this.Text = "ManageEmployees";
 			this.Load += new System.EventHandler(this.ManageEmployees_Load);
-			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.toolStrip.ResumeLayout(false);
 			this.toolStrip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.employeeObjectListView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -228,21 +237,22 @@ namespace gamedevstory
 
 		#endregion
 
-		private BrightIdeasSoftware.ObjectListView employeeObjectListView;
-		private BrightIdeasSoftware.OLVColumn oNameColumn;
-		private BrightIdeasSoftware.OLVColumn oLevelColumn;
-		private BrightIdeasSoftware.OLVColumn oWageColumn;
-		private BrightIdeasSoftware.OLVColumn oProgrammingColumn;
-		private BrightIdeasSoftware.OLVColumn oWritingColumn;
-		private BrightIdeasSoftware.OLVColumn oDesigningColumn;
-		private BrightIdeasSoftware.OLVColumn oSoundEngineeringColumn;
-		private BrightIdeasSoftware.OLVColumn oArtColumn;
 		private System.Windows.Forms.ImageList imageList;
 		private System.Windows.Forms.Timer updateTimer;
 		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel monthlyCostsLabel;
+		private System.Windows.Forms.ToolStripStatusLabel monthlyExpensesLabel;
 		private System.Windows.Forms.ToolStrip toolStrip;
-		private System.Windows.Forms.ToolStripButton hireEmployeeButton;
+		private System.Windows.Forms.ToolStripButton hireEmployeesButton;
 		private System.Windows.Forms.ToolStripProgressBar tickVisualizer;
+		private ObjectListView employeeObjectListView;
+		private OLVColumn oNameColumn;
+		private OLVColumn oLevelColumn;
+		private OLVColumn oWageColumn;
+		private OLVColumn oProgrammingColumn;
+		private OLVColumn oWritingColumn;
+		private OLVColumn oDesigningColumn;
+		private OLVColumn oSoundEngineeringColumn;
+		private OLVColumn oArtColumn;
+		private OLVColumn oSpecialityColumn;
 	}
 }
