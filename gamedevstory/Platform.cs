@@ -1,9 +1,16 @@
-﻿namespace GameDevClone
+﻿using System;
+
+namespace GameDevClone
 {
-	public class Platform
+	public abstract class Platform
 	{
-		public int LisencingCost;
-		public float DifficultyMultiplier;
-		public int OwnerCount;
-	}
+        public Owner LicenseOwner;
+        public int LicensingCost;
+        public bool IsLicensed;
+        public DateTime ReleaseDate;
+        public int UnitsSold;
+        public float MarketShare;
+        public int TimesUsed;
+        public float DifficultyMultiplier;
+    }
 }

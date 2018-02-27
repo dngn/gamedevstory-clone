@@ -4,7 +4,8 @@
 	{
 		public PC()
 		{
-			LisencingCost = 0;
+            LicenseOwner = Owner.None;
+			LicensingCost = 0;
 			DifficultyMultiplier = 1.0f;
 		}
 	}

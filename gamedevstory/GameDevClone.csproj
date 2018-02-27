@@ -78,6 +78,7 @@
     <Compile Include="Forms\NewGame.Designer.cs">
       <DependentUpon>NewGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Owner.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
@@ -86,6 +87,8 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="Platforms\Exodus.cs" />
+    <Compile Include="Platforms\MicroxSX.cs" />
     <Compile Include="Platforms\PC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />

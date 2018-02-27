@@ -27,7 +27,10 @@ namespace GameDevClone
 			Fighting,
 			Simulator,
 			Sports,
-			Adventure
+			Adventure,
+            Table,
+            Pirate,
+            Robot
 		}
 		
 		public enum GameModifier
